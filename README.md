@@ -1,7 +1,18 @@
-This is a Student Information System I first built back in my 3rd semester.
+## Getting Started
 
-Now that I'm in my 10th semester, I'm revisiting it as a personal challenge. The original code worked, but it's a perfect example of an early project—full of code smells and messy dependencies.
+Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
-My goal is to refactor this entire project, applying what I've learned about good software design. I'm focusing on cleaning up the code, fixing the smells, and implementing SOLID principles to make it clean, maintainable, and much more professional.
+## Folder Structure
 
-This repo is just a live look at my journey from "making it work" to "making it right."
+The workspace contains two folders by default, where:
+
+- `src`: the folder to maintain sources
+- `lib`: the folder to maintain dependencies
+
+Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+
+> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+
+## Dependency Management
+
+The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
