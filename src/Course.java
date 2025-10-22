@@ -1,12 +1,15 @@
-
-
 import java.util.ArrayList;
 
 public class Course {
 
     private String courseId, courseTitle;
     private double credit;
-    private ArrayList<Student> studentList = new ArrayList<Student>();
+    
+    
+    private ArrayList<Person> studentList = new ArrayList<Person>();  
+    
+    // --- DIP: Changed from ArrayList<Student> to ArrayList<Person> ---
+    
     private ArrayList<ExamResult> resultList = new ArrayList<ExamResult>();
     private int numberOfStudent = 0;
     private Faculty faculty;
@@ -18,6 +21,7 @@ public class Course {
     // --------------------
 
     public Course() {
+
     }
 
     // Original constructor
@@ -66,13 +70,15 @@ public class Course {
         this.credit = credit;
     }
 
-    public ArrayList<Student> getStudentList() {
+    // --- DIP: Methods now use the Person abstraction ---
+    public ArrayList<Person> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(ArrayList<Student> studentList) {
+    public void setStudentList(ArrayList<Person> studentList) {
         this.studentList = studentList;
     }
+    // -------------------------------------------------
 
     public int getNumberOfStudent() {
         return numberOfStudent;
@@ -144,10 +150,11 @@ public class Course {
         // -----------------------
     }
 
-    public void addStudent(Student s) {
+    // --- DIP: This method now accepts the Person abstraction ---
+    public void addStudent(Person s) { 
         // You could even update this to check against classroom.getCapacity()
         if (numberOfStudent <= 40) { 
-            studentList.add(s);
+            studentList.add(s); // This works because MainClass will pass a Student, which IS A Person
             numberOfStudent++;
         } else {
             System.out.println("Student capacity reached maximum number.\n"
@@ -158,7 +165,8 @@ public class Course {
     public void dropStudent(int studentId) {
         int i;
         for (i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getId() == studentId) {
+            // This still works because getId() is on the Person class
+            if (studentList.get(i).getId() == studentId) { 
                 studentList.remove(i);
                 numberOfStudent--;
                 break;
@@ -188,8 +196,10 @@ public class Course {
 
     public void printStudentList() {
         System.out.println("--- Student List for " + courseId + " ---");
-        for (Student s : studentList) {
-            s.display(); // Just display basic info
+        
+        // --- DIP: Loop now uses the Person abstraction ---
+        for (Person s : studentList) {
+            s.display(); // This works because display() is on the Person class (OCP/LSP)
         }
         System.out.println("------------------------------------");
     }

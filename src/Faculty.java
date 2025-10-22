@@ -1,8 +1,6 @@
-
 import java.util.ArrayList;
-
-// FIXED: Added "public"
-public class Faculty extends Person {
+// Faculty now implements the ICourseManager role
+public class Faculty extends Person implements ICourseManager {
 
     private String facultyPosition;
     private ArrayList<Course> CourseList = new ArrayList<Course>();
@@ -75,9 +73,10 @@ public class Faculty extends Person {
         System.out.println("Faculty Email: " + getEmail());
         System.out.println("Faculty Position: " + facultyPosition);
                
-
     }
 
+    // --- ISP: Implementation of ICourseManager ---
+    @Override
     public void addCourse(Course c) {
         if (numberOfCourses <= 3) {
             CourseList.add(c);
@@ -88,6 +87,7 @@ public class Faculty extends Person {
         }
     }
 
+    @Override
     public void dropCourse(String courseId) {
         for (int i = 0; i < CourseList.size(); i++) {
             if (CourseList.get(i).getCourseId().equals(courseId)) {
@@ -98,11 +98,13 @@ public class Faculty extends Person {
         }
     }
 
+    @Override
     public void displayAssignCourse() {
         for (Course c : CourseList) {
             c.display();
         }
     }
+    // ------------------------------------------
 
     public void addClub(Club c) {
 

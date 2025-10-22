@@ -7,6 +7,7 @@ public abstract class Person {
     private String name, email;
 
     public Person() {
+
     }
 
     public Person(int id, String name, String email) {
@@ -39,7 +40,16 @@ public abstract class Person {
         this.email = email;
     }
 
-    public void display() {
-        System.out.println("");
-    }
+    abstract public void display();
+
+    /*
+     * 
+     * The Person class is abstract and defines an abstract public void display() method. 
+     * This "closes" the Person class for modification—we don't need to change it.
+     * 
+     * 
+     * 
+     * 
+     */
+    
 }
