@@ -1,5 +1,3 @@
-
-
 public class Classroom {
 
     private String buildingName;

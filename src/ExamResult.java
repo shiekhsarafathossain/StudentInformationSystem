@@ -58,15 +58,15 @@ public class ExamResult {
     }
     
     // These two methods seem out of place in ExamResult
-    public void addCourse(Course e){
-        CourseList.add(e);
-    }
+    // public void addCourse(Course e){
+    //     CourseList.add(e);
+    // }
     
-    public void courseDisplay(){
-        for(Course i: CourseList){
-            i.display();
-        }
-    }
+    // public void courseDisplay(){
+    //     for(Course i: CourseList){                    (Single Responsibility Principle)
+    //         i.display();
+    //     }
+    // }
 
     public void display() {
         System.out.println("Course: " + courseName); // Added this for clarity

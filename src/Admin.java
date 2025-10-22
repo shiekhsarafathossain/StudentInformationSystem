@@ -1,5 +1,3 @@
-
-
 public class Admin extends Person {
 
     private String adminRole; // e.g., "Registrar", "System Administrator"
